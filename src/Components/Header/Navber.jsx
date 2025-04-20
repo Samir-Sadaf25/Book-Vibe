@@ -3,7 +3,7 @@ import React from 'react';
 const Navber = () => {
     return (
         <div>
-            <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
+            <nav className="flex items-center justify-between px-8 py-4 bg-white ">
                 {/* Logo */}
                 <div className="text-2xl font-bold text-black">
                     Book Vibe
