@@ -1,5 +1,5 @@
 import React from 'react';
-import bookImage from '../../assets/books.jpg'
+import bookImage from '../../assets/books.png'
 
 const Banner = () => {
     return (
@@ -9,7 +9,7 @@ const Banner = () => {
                 <h2 className="text-5xl  font-bold text-gray-800 mb-4">
                     Books to freshen up<br />your bookshelf
                 </h2>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 rounded-md">
+                <button className="btn btn-wide btn-accent rounded-4xl">
                     View The List
                 </button>
             </div>
@@ -19,7 +19,7 @@ const Banner = () => {
                 <img
                     src={bookImage}
                     alt="The Dating Playbook For Men"
-                    className="  drop-shadow-lg"
+                    className="  drop-shadow-lg w-[318px]"
                 />
             </div>
         </section>

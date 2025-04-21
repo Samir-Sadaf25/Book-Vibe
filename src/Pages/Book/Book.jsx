@@ -7,13 +7,13 @@ const Book = ({ singleBook }) => {
     const { bookName, bookId, image, author, rating, tags } = singleBook;
     // console.log(singleBook);
     return (
-        <Link to={`/BookDetails/:${bookId}`}>
-            <div className=" bg-white rounded-xl shadow-md p-4 border border-gray-200">
-                <div className="bg-gray-100 rounded-xl p-4 flex justify-center items-center">
+        <Link to={`/BookDetails/${bookId}`}>
+            <div className="  bg-white rounded-xl shadow-md p-4 border border-gray-200">
+                <div className=" rounded-xl p-4 flex justify-center items-center">
                     <img
                         src={image}
                         alt="Book Cover"
-                        className="w-[150px] object-contain"
+                        className="w-[150px] object-contain bg-gray-100 p-4"
                     />
                 </div>
 

@@ -11,7 +11,7 @@ const Navber = () => {
 
                 {/* Navigation Links */}
                 <div className="flex space-x-6">
-                    <button className="text-green-600 border border-green-600 px-4 py-1 rounded-md font-semibold">
+                    <button className="btn btn-outline btn-accent">
                         Home
                     </button>
                     <button className="text-gray-700 hover:text-black">
@@ -24,10 +24,10 @@ const Navber = () => {
 
                 {/* Auth Buttons */}
                 <div className="flex space-x-4">
-                    <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-semibold">
+                    <button className="btn btn-accent">
                         Sign In
                     </button>
-                    <button className="bg-sky-400 hover:bg-sky-500 text-white px-4 py-2 rounded-md font-semibold">
+                    <button className="btn btn-accent">
                         Sign Up
                     </button>
                 </div>
