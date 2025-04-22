@@ -19,14 +19,36 @@ const ReadList = () => {
 
     }, [data])
 
-
-    console.log(readList)
+    const [sort,setSort] = useState("");
+    const handleSort = (type) =>{
+            setSort(type)
+            if (type === "ratings") {
+               const sortByRating = [...readList].sort((a,b) => a.rating - b.rating)
+               setReadList(sortByRating);
+            }
+            if (type === "pages") {
+               const sortByPages = [...readList].sort((a,b) => a.totalPages - b.totalPages)
+               setReadList(sortByPages);
+            }
+    }
     return (
+
         <div>
+
             <Tabs>
+
                 <TabList>
-                    <Tab><button class="btn btn-outline">My Read List</button></Tab>
-                    <Tab><button class="btn btn-outline">Wish List</button></Tab>
+                    <Tab><button className="btn btn-outline">My Read List</button></Tab>
+                    
+                        <div className="dropdown dropdown-bottom">
+                            <div tabindex="0" role="button" className="btn m-1">sort by : {sort?sort:""} </div>
+                            <ul tabindex="0" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                <li><a onClick={() => handleSort("pages")}>pages</a></li>
+                                <li><a onClick={() => handleSort("ratings")}>ratings</a></li>
+                            </ul>
+                        </div>
+
+                    
                 </TabList>
 
                 <TabPanel>
@@ -34,21 +56,19 @@ const ReadList = () => {
                         {
                             readList.map((book, idx) => (
                                 <div key={idx} className="flex flex-col md:flex-row items-start md:items-center gap-6 p-4 bg-white rounded-xl border shadow-sm">
-                                    {/* Book Image */}
                                     <div className="w-24 h-auto flex-shrink-0">
                                         <img
-                                            src={book.image} // Make sure this field exists
+                                            src={book.image}
                                             alt={book.title}
                                             className="object-contain w-full h-auto rounded"
                                         />
                                     </div>
 
-                                    {/* Book Info */}
+
                                     <div className="flex-1 space-y-2">
                                         <h2 className="text-lg font-semibold">{book.title}</h2>
                                         <p className="text-sm text-gray-600">By : {book.author}</p>
 
-                                        {/* Tags & Publishing Info */}
                                         <div className="flex flex-wrap items-center gap-2 text-sm text-gray-700">
                                             <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
                                                 #{book.tags?.[0]}
@@ -62,7 +82,7 @@ const ReadList = () => {
                                             </div>
                                         </div>
 
-                                        {/* Publisher & Page Info */}
+
                                         <div className="flex flex-wrap gap-4 text-sm text-gray-600 mt-1">
                                             <div className="flex items-center gap-1">
                                                 <User className="w-4 h-4" />
@@ -74,7 +94,7 @@ const ReadList = () => {
                                             </div>
                                         </div>
 
-                                        {/* Footer Section */}
+
                                         <div className="flex flex-wrap justify-between items-center pt-3 border-t mt-3">
                                             <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
                                                 Category: {book.category}
@@ -92,9 +112,7 @@ const ReadList = () => {
                         }
                     </div>
                 </TabPanel>
-                <TabPanel>
-                    <h2>Any content 2</h2>
-                </TabPanel>
+
             </Tabs>
         </div>
     );
