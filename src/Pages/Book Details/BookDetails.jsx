@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToLocalStorage } from '../../Utility/AddToDB';
 
 const BookDetails = () => {
 
@@ -9,7 +10,12 @@ const BookDetails = () => {
     const singleBook = data.find(book => book.bookId === bookID);
     // console.log(singleBook);
     const { bookName,category, image, author, rating, tags, review,publisher, totalPages, yearOfPublishing } = singleBook;
-    console.log(singleBook)
+    // console.log(singleBook)
+
+    const handleMarkAsRead = (id) =>{
+        addToLocalStorage(id);
+    }
+
     return (
         <div className="flex flex-col md:flex-row gap-8 bg-white p-6 rounded-xl shadow-md">
             {/* Book Image */}
@@ -62,7 +68,7 @@ const BookDetails = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-3">
-                <button className="btn btn-outline btn-accent">Mark as Read</button>
+                <button onClick={() => handleMarkAsRead(id)} className="btn btn-outline btn-accent">Mark as Read</button>
                 <button className="btn btn-accent btn-outline">Add to Wishlist</button>
                 </div>
             </div>

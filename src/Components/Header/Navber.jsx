@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navber = () => {
     return (
@@ -11,12 +12,10 @@ const Navber = () => {
 
                 {/* Navigation Links */}
                 <div className="flex space-x-6">
-                    <button className="btn btn-outline btn-accent">
+                    <Link to={'/'}><button className="btn btn-outline btn-accent">
                         Home
-                    </button>
-                    <button className="text-gray-700 hover:text-black">
-                        Listed Books
-                    </button>
+                    </button></Link>
+                    <Link to={'/ReadList'}><button className="text-gray-700 hover:text-black btn btn-outline btn-accent">Listed Books</button></Link>
                     <button className="text-gray-700 hover:text-black">
                         Pages to Read
                     </button>
